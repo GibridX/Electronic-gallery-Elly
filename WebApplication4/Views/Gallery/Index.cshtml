@@ -1,0 +1,13 @@
+﻿@model List<WebApplication4.Models.Image>
+
+<h1>Image Gallery</h1>
+
+<ul>
+    @foreach (var image in Model)
+    {
+        <li>
+            <img src="@Url.Action("DisplayImage", "Gallery", new { id = image.Id })" alt="@image.Title" style="max-width: 200px; max-height: 200px;" />
+            <p>@image.Title</p>
+        </li>
+    }
+</ul>

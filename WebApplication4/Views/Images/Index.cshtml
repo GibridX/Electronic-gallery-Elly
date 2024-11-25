@@ -1,0 +1,20 @@
+﻿@model List<WebApplication4.Models.Image>
+
+<h1>Image Gallery</h1>
+
+<form method="post" enctype="multipart/form-data" asp-controller="Images" asp-action="Upload">
+    <input type="file" name="file" />
+    <button type="submit">Upload</button>
+</form>
+
+<ul>
+    @foreach (var image in Model)
+    {
+        <li>
+            <a asp-controller="Images" asp-action="DisplayImage" asp-route-id="@image.Id">
+                @image.Title
+            </a>
+            <a asp-controller="Images" asp-action="DeleteImage" asp-route-id="@image.Id">Удалить</a>
+        </li>
+    }
+</ul>
