@@ -60,8 +60,24 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SkiaSharp" Version="2.88.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\004-min.jpg" />
+    <None Include="wwwroot\images\2150695899.jpg" />
+    <None Include="wwwroot\images\2150695943.jpg" />
+    <None Include="wwwroot\images\8618455.png" />
+    <None Include="wwwroot\images\default-image.jpg" />
+    <None Include="wwwroot\images\empty-flat-interrior-with-elements-decoration.jpg" />
+    <None Include="wwwroot\images\loft-authentic-dining-room-interior-design-with-picture-frame8-min.jpg" />
+    <None Include="wwwroot\images\modern-entryway-with-furniture-h3.jpg" />
+    <None Include="wwwroot\images\modern-luxury-authentic-dining-room-interior-design-with-picture-frame_53876-128701.jpg" />
+    <None Include="wwwroot\images\modern-styled-entryway_23-215069.jpg" />
+    <None Include="wwwroot\images\modern-styled-entryway_23-2150695941.jpg" />
+    <None Include="wwwroot\images\workspace-desk-with-plant-lamp_23-2148592288.jpg" />
   </ItemGroup>
 
 </Project>

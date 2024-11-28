@@ -1,22 +1,53 @@
 ﻿@model List<WebApplication4.Models.Image>
 
-<h1>Image Gallery</h1>
+@{
+    ViewData["Title"] = "Upload";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+    <style>
+        .container-home2 {
+            border: 5px solid #55605a;
+            border-radius: 15px;
+            padding: 40px;
+            width: 960px;
+        }
+        .form-control{
+            width: 600px;
+        }
+    </style>
+</head>
+<body class="body1">
+    <main class="container-home2">
+        <h1 style="text-align: center; margin-bottom: 40px; font-weight: bold">@ViewData["Title"]</h1>
+        <form method="post" enctype="multipart/form-data" asp-controller="Images" asp-action="Upload">
+            <div class="form-group">
+                <label for="file" style="margin-bottom: 5px">Upload Image:</label>
+                <input type="file" name="file" id="file" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px">Upload</button>
+        </form>
 
-<form method="post" enctype="multipart/form-data" asp-controller="Images" asp-action="Upload">
-    <input type="file" name="file" />
-    <button type="submit">Upload</button>
-</form>
-
-<ul>
-    @foreach (var image in Model)
-    {
-        <li>
-            <a asp-controller="Images" asp-action="DisplayImage" asp-route-id="@image.Id">
-                @image.Title
-            </a>
-            <a asp-controller="Images" asp-action="DeleteImage" asp-route-id="@image.Id">Удалить</a>
-        </li>
-    }
-</ul>
-
-<link rel="stylesheet" href="~/css/style.css" />
+        <ul class="list-unstyled mt-4">
+            @foreach (var image in Model)
+            {
+                <li class="media mb-3">
+                    <div class="media-body">
+                        <a asp-controller="Images" asp-action="DisplayImage" asp-route-id="@image.Id">
+                            @image.Title
+                        </a>
+                    </div>
+                    <form method="post" asp-controller="Images" asp-action="Delete" style="display: inline;">
+                        <input type="hidden" name="id" value="@image.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Вы уверены, что хотите удалить это изображение?');">Удалить</button>
+                    </form>
+                </li>
+            }
+        </ul>
+    </main>
+</body>
+</html>

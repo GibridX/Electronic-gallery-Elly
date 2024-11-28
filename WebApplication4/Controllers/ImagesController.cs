@@ -42,5 +42,17 @@ namespace WebApplication4.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var image = await _context.Images.FindAsync(id);
+            if (image != null)
+            {
+                _context.Images.Remove(image);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
